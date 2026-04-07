@@ -1,0 +1,86 @@
+import { useState } from 'react'
+
+export default function Nav() {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50">
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        {/* Logo */}
+        <a href="#" className="flex items-center gap-2.5">
+          <svg className="w-7 h-7" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="7" fill="#1E1B4B"/>
+            <path d="M7 11h10a5 5 0 0 1 0 10H7" stroke="#818CF8" strokeWidth="2.5" strokeLinecap="round"/>
+            <circle cx="22" cy="16" r="2" fill="#818CF8"/>
+            <path d="M7 16h8" stroke="#818CF8" strokeWidth="2.5" strokeLinecap="round"/>
+            <path d="M21 9l4 7-4 7" stroke="#A5B4FC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <span className="font-semibold text-white tracking-tight">DataShuttle</span>
+        </a>
+
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-8">
+          {['Features', 'How it works', 'Docs', 'Pricing'].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase().replace(/ /g, '-')}`}
+              className="text-sm text-slate-400 hover:text-white transition-colors"
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="hidden md:flex items-center gap-3">
+          <a href="#early-access" className="text-sm text-slate-400 hover:text-white transition-colors">
+            Sign in
+          </a>
+          <a
+            href="#early-access"
+            className="text-sm px-4 py-1.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white transition-colors font-medium"
+          >
+            Get early access
+          </a>
+        </div>
+
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden text-slate-400 hover:text-white"
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {open
+              ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            }
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {open && (
+        <div className="md:hidden border-t border-slate-800 bg-slate-950 px-6 py-4 flex flex-col gap-4">
+          {['Features', 'How it works', 'Docs', 'Pricing'].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase().replace(/ /g, '-')}`}
+              className="text-sm text-slate-400 hover:text-white transition-colors"
+              onClick={() => setOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
+          <a
+            href="#early-access"
+            className="text-sm px-4 py-2 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white text-center transition-colors font-medium"
+            onClick={() => setOpen(false)}
+          >
+            Get early access
+          </a>
+        </div>
+      )}
+    </nav>
+  )
+}
