@@ -64,7 +64,7 @@ export default function WhyIceberg() {
           <p className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Every data team eventually rebuilds the same pipeline:
             warehouse for fresh data, lake for cheap data, glue code
-            to keep them in sync. Apache Iceberg V3 collapses both
+            to keep them in sync. Apache Iceberg collapses both
             into one open format. DataShuttle is built around it
             from the first byte — not as an export target, but as
             the only place your data lives.
@@ -107,8 +107,6 @@ export default function WhyIceberg() {
             <span>Athena</span>
             <span>·</span>
             <span>Snowflake</span>
-            <span>·</span>
-            <span>BigQuery</span>
             <span>·</span>
             <span>Databricks</span>
             <span>·</span>

@@ -36,7 +36,7 @@ ssh root@jarvis-eu '
   docker run -d \
     --name datashuttle-website \
     --restart unless-stopped \
-    --add-host=host.docker.internal:host-gateway \
+    --network ds-net \
     -p 80:80 \
     datashuttle-website:latest
 '
@@ -45,7 +45,7 @@ ssh root@jarvis-eu '
 ## Architecture
 
 - **Static site** — Vite builds React to `dist/`, nginx serves it
-- **API** — `/api/early-access` proxied by nginx to a Node container running on `host.docker.internal:3001`
+- **API** — `/api/early-access` proxied by nginx to the `datashuttle-api` container on the shared `ds-net` docker network (port 3001), resolved via docker DNS
 - **Email** — early-access form sends via Resend API to `hello@datashuttle.ai`
 - **Security headers** — CSP, HSTS, X-Frame-Options, etc. set by nginx
 - **TLS** — Cloudflare proxy with TLS 1.2 minimum, HSTS via origin

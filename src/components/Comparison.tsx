@@ -9,7 +9,7 @@ interface Row {
 }
 
 const rows: Row[] = [
-  { feature: 'Iceberg V3 native',         datashuttle: true,          debezium: false,            dlt: false,          fivetran: false },
+  { feature: 'Iceberg native',         datashuttle: true,          debezium: false,            dlt: false,          fivetran: false },
   { feature: 'Deletion vectors',           datashuttle: true,          debezium: false,            dlt: false,          fivetran: false },
   { feature: 'Continuous CDC',             datashuttle: true,          debezium: true,             dlt: '⚠️ Limited',   fivetran: true },
   { feature: 'Schema auto-evolution',      datashuttle: true,          debezium: '⚠️ Partial',     dlt: true,           fivetran: '⚠️ Limited' },
@@ -63,7 +63,7 @@ export default function Comparison() {
                 <th className="px-4 py-4 text-center font-semibold text-white bg-indigo-950/40 border-x border-indigo-500/20">
                   <div className="flex flex-col items-center gap-1">
                     <span className="text-indigo-400">DataShuttle</span>
-                    <span className="text-xs font-normal text-indigo-500/60">Iceberg V3-native</span>
+                    <span className="text-xs font-normal text-indigo-500/60">Iceberg-native</span>
                   </div>
                 </th>
                 <th className="px-4 py-4 text-center text-slate-500 font-medium">

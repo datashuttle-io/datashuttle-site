@@ -1,0 +1,17 @@
+{
+  "name": "datashuttle-website-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Early-access form backend for datashuttle.ai — relays submissions to Resend.",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "resend": "^4.0.0"
+  }
+}

@@ -1,10 +1,10 @@
 const features = [
   {
-    title: 'Iceberg V3 Native',
+    title: 'Iceberg Native',
     badge: 'Core',
     color: 'indigo',
     description:
-      'Deletion vectors, row lineage, default column values, VARIANT type. Built for V3 from day one — not bolted onto a V2 writer.',
+      'Deletion vectors, row lineage, default column values, VARIANT type. Built for the modern table format from day one — not bolted onto a legacy writer.',
     detail: 'delete_mode = \'deletion_vectors\' is the default. 5–10× more efficient than position-delete files.',
   },
   {
@@ -36,7 +36,7 @@ const features = [
     badge: 'Zero-downtime',
     color: 'amber',
     description:
-      'Source schema changes are detected and propagated to Iceberg as metadata-only operations. New columns use V3 default values — no data rewrite.',
+      'Source schema changes are detected and propagated to Iceberg as metadata-only operations. New columns use Iceberg default values — no data rewrite.',
     detail: 'Safe widening by default. Type promotions, column adds, and renames handled automatically.',
   },
   {

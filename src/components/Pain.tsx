@@ -27,7 +27,7 @@ const pains = [
     before: 'Delta / Snowflake lock-in',
     after: 'Open Iceberg standard',
     description:
-      'DataShuttle writes standard Iceberg V3. Read with Spark, Trino, Athena, DuckDB, Snowflake, or Databricks — no vendor dependency.',
+      'DataShuttle writes standard Iceberg. Read with Spark, Trino, Athena, DuckDB, Snowflake, or Databricks — no vendor dependency.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}

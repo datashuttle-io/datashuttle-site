@@ -38,7 +38,7 @@ export default function Hero() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-xs font-medium mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-          Iceberg V3-native · Now in private beta
+          Iceberg-native · Now in private beta
         </div>
 
         {/* Headline */}
@@ -54,7 +54,7 @@ export default function Hero() {
         {/* Subheadline */}
         <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed">
           DataShuttle is a standalone ingestion engine that moves data from PostgreSQL, MySQL, MongoDB,
-          Kafka, and more into Iceberg V3 tables — with sub-minute latency, automatic schema evolution,
+          Kafka, and more into Iceberg tables — with sub-minute latency, automatic schema evolution,
           and zero operational overhead.
         </p>
 

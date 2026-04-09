@@ -58,12 +58,13 @@ export default function HowItWorks() {
               <p className="text-xs font-medium text-indigo-400 uppercase tracking-widest mb-4">DataShuttle Engine</p>
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  { label: 'CDC Capture', color: 'text-violet-400' },
-                  { label: 'Schema Evolution', color: 'text-indigo-400' },
-                  { label: 'Inline Transforms', color: 'text-violet-400' },
-                  { label: 'Auto Compaction', color: 'text-indigo-400' },
-                  { label: 'Arrow Flight Buffer', color: 'text-violet-400' },
-                  { label: 'Built-in Lineage', color: 'text-indigo-400' },
+                  { label: 'True MPP', color: 'text-violet-400' },
+                  { label: 'CDC Capture', color: 'text-indigo-400' },
+                  { label: 'Schema Evolution', color: 'text-violet-400' },
+                  { label: 'Inline Transforms', color: 'text-indigo-400' },
+                  { label: 'Auto Compaction', color: 'text-violet-400' },
+                  { label: 'Arrow Flight Buffer', color: 'text-indigo-400' },
+                  { label: 'Built-in Lineage', color: 'text-violet-400' },
                 ].map((item) => (
                   <div
                     key={item.label}
@@ -98,7 +99,7 @@ export default function HowItWorks() {
 
           {/* Iceberg target */}
           <div className="flex-1 rounded-2xl border border-emerald-500/20 bg-emerald-950/20 p-6">
-            <p className="text-xs font-medium text-emerald-400 uppercase tracking-widest mb-4">Iceberg V3 Tables</p>
+            <p className="text-xs font-medium text-emerald-400 uppercase tracking-widest mb-4">Iceberg Tables</p>
             <div className="flex flex-col gap-2 mb-4">
               {targets.map((t) => (
                 <div
@@ -132,7 +133,7 @@ export default function HowItWorks() {
             {
               step: '03',
               title: 'Query with any engine',
-              desc: 'Your data lands in standard Iceberg V3 tables. Spark, Trino, Athena, Snowflake, Databricks — pick what fits. No vendor dependency.',
+              desc: 'Your data lands in standard Iceberg tables. Spark, Trino, Athena, Snowflake, Databricks — pick what fits. No vendor dependency.',
             },
           ].map((item) => (
             <div key={item.step} className="flex gap-4">

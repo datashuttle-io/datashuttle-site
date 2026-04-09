@@ -54,7 +54,7 @@ const capabilities = [
     label: 'Compaction-friendly',
     title: 'Manifest-level partition stats',
     body:
-      'Every commit publishes per-partition min/max bounds and a contains_null flag in the manifest list. Iceberg readers prune entire manifests before touching any data file — the way V3 was meant to be used.',
+      'Every commit publishes per-partition min/max bounds and a contains_null flag in the manifest list. Iceberg readers prune entire manifests before touching any data file — the way Iceberg was meant to be used.',
   },
 ]
 
