@@ -22,30 +22,28 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
+          {/* Links — only pages that actually resolve. Docs /
+               Blog / GitHub / legal pages will come back when the
+               underlying targets go live (docs.datashuttle.ai,
+               public repo, privacy/terms copy). Dead `href='#'`
+               placeholders lived here previously; they looked live
+               but bounced visitors to a blank page. */}
+          <div className="grid grid-cols-2 gap-8 text-sm">
             <div>
               <p className="text-slate-300 font-medium mb-3">Product</p>
               <ul className="space-y-2">
-                {['Features', 'How it works', 'Connectors', 'Pricing'].map((l) => (
-                  <li key={l}><a href={`#${l.toLowerCase().replace(/ /g, '-')}`} className="text-slate-500 hover:text-slate-300 transition-colors">{l}</a></li>
-                ))}
+                <li><a href="/cloud" className="text-slate-500 hover:text-slate-300 transition-colors">Cloud</a></li>
+                <li><a href="/pricing" className="text-slate-500 hover:text-slate-300 transition-colors">Pricing</a></li>
+                <li><a href="/#features" className="text-slate-500 hover:text-slate-300 transition-colors">Features</a></li>
+                <li><a href="/#how-it-works" className="text-slate-500 hover:text-slate-300 transition-colors">How it works</a></li>
               </ul>
             </div>
             <div>
               <p className="text-slate-300 font-medium mb-3">Resources</p>
               <ul className="space-y-2">
-                {['Documentation', 'API Reference', 'Changelog', 'GitHub'].map((l) => (
-                  <li key={l}><a href="#" className="text-slate-500 hover:text-slate-300 transition-colors">{l}</a></li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-slate-300 font-medium mb-3">Company</p>
-              <ul className="space-y-2">
-                {['About', 'Blog', 'Careers', 'Contact'].map((l) => (
-                  <li key={l}><a href="#" className="text-slate-500 hover:text-slate-300 transition-colors">{l}</a></li>
-                ))}
+                <li><a href="/whats-new" className="text-slate-500 hover:text-slate-300 transition-colors">What's new</a></li>
+                <li><a href="/changelog" className="text-slate-500 hover:text-slate-300 transition-colors">Changelog</a></li>
+                <li><a href="mailto:hello@datashuttle.ai" className="text-slate-500 hover:text-slate-300 transition-colors">Contact</a></li>
               </ul>
             </div>
           </div>
@@ -56,8 +54,6 @@ export default function Footer() {
             © {year} DataShuttle Labs. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-xs text-slate-600">
-            <a href="#" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-400 transition-colors">Terms of Service</a>
             <a href="mailto:hello@datashuttle.ai" className="hover:text-slate-400 transition-colors">hello@datashuttle.ai</a>
           </div>
         </div>
