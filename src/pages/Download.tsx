@@ -21,7 +21,7 @@ const TABS: InstallTab[] = [
     key: 'quick',
     label: 'Quick install',
     command:
-      'curl -fsSL https://raw.githubusercontent.com/datashuttle-ai/datashuttle/main/install.sh | bash',
+      'curl -fsSL https://datashuttle.ai/install.sh | bash',
     footnote:
       "Detects your OS + arch and fetches the right release binary. Read install.sh first if curl | bash makes you twitchy.",
     os: ['linux', 'macos'],
@@ -42,22 +42,6 @@ const TABS: InstallTab[] = [
     os: ['macos'],
   },
   {
-    key: 'helm',
-    label: 'Helm',
-    command: 'helm install datashuttle deploy/helm/datashuttle',
-    footnote:
-      'Checkout the repo first — the chart is vendored under deploy/helm/ rather than a Chart repository.',
-    os: ['linux'],
-  },
-  {
-    key: 'cargo',
-    label: 'Cargo',
-    command: 'cargo install datashuttle-cli',
-    footnote:
-      'Requires Rust 1.94+. Slower first compile (~15 min on 4 cores), but rebuilds fly on warm cache.',
-    os: ['linux', 'macos', 'windows'],
-  },
-  {
     key: 'deb',
     label: 'DEB (Debian/Ubuntu)',
     command: 'sudo dpkg -i datashuttle_<version>_amd64.deb',
@@ -72,15 +56,6 @@ const TABS: InstallTab[] = [
     footnote:
       'Same pattern as the .deb — grab the .rpm from GitHub Releases. dnf-repo is on the roadmap.',
     os: ['linux'],
-  },
-  {
-    key: 'source',
-    label: 'From source',
-    command:
-      'git clone https://github.com/datashuttle-ai/datashuttle.git && cd datashuttle && cargo build --release',
-    footnote:
-      'Contribution guide is at docs.datashuttle.ai/development/contributing. Windows builds supported via cross but not release-tested.',
-    os: ['linux', 'macos', 'windows'],
   },
 ]
 
@@ -206,7 +181,7 @@ export default function Download() {
           {activeTab.key === 'quick' && (
             <p className="mt-2 text-xs">
               <a
-                href="https://github.com/datashuttle-ai/datashuttle/blob/main/install.sh"
+                href="https://datashuttle.ai/install.sh"
                 target="_blank"
                 rel="noopener"
                 className="text-indigo-400 underline hover:text-indigo-300"
@@ -236,31 +211,17 @@ export default function Download() {
           Verify your download
         </h2>
         <p className="mt-2 text-sm text-slate-400">
-          Every GitHub Release ships SHA-256 checksums alongside the
-          binaries. The release workflow also publishes Cosign signatures
-          — verify before running on production:
+          Every GitHub Release ships a SHA-256 checksum file alongside
+          each binary. Verify before running on production:
         </p>
         <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-950/70 p-4 text-xs text-slate-200">
-{`# checksum
-sha256sum -c datashuttle_<version>_checksums.txt
+{`# Download the binary + its checksum
+curl -LO https://github.com/datashuttle-ai/datashuttle/releases/latest/download/datashuttle-<platform>.tar.gz
+curl -LO https://github.com/datashuttle-ai/datashuttle/releases/latest/download/datashuttle-<platform>.tar.gz.sha256
 
-# cosign (keyless, GitHub OIDC)
-cosign verify-blob \\
-  --certificate-identity-regexp='https://github.com/datashuttle-ai/datashuttle/.*' \\
-  --certificate-oidc-issuer=https://token.actions.githubusercontent.com \\
-  --signature datashuttle-<ver>.sig \\
-  datashuttle-<ver>`}
+# Verify
+sha256sum -c datashuttle-<platform>.tar.gz.sha256`}
         </pre>
-        <p className="mt-3 text-xs">
-          <a
-            href="https://github.com/datashuttle-ai/datashuttle/blob/main/.github/workflows/release.yaml"
-            target="_blank"
-            rel="noopener"
-            className="text-indigo-400 underline hover:text-indigo-300"
-          >
-            Release pipeline →
-          </a>
-        </p>
       </section>
 
       {/* Next steps */}
