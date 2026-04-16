@@ -22,12 +22,11 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links — only pages that actually resolve. Docs /
-               Blog / GitHub / legal pages will come back when the
-               underlying targets go live (docs.datashuttle.ai,
-               public repo, privacy/terms copy). Dead `href='#'`
-               placeholders lived here previously; they looked live
-               but bounced visitors to a blank page. */}
+          {/* Links — only pages that actually resolve. Blog / GitHub /
+               legal pages will come back when the underlying targets
+               go live (public repo, privacy/terms copy). Dead `href='#'`
+               placeholders lived here previously; they looked live but
+               bounced visitors to a blank page. */}
           <div className="grid grid-cols-2 gap-8 text-sm">
             <div>
               <p className="text-slate-300 font-medium mb-3">Product</p>
@@ -41,6 +40,7 @@ export default function Footer() {
             <div>
               <p className="text-slate-300 font-medium mb-3">Resources</p>
               <ul className="space-y-2">
+                <li><a href="https://docs.datashuttle.ai" className="text-slate-500 hover:text-slate-300 transition-colors">Docs</a></li>
                 <li><a href="/whats-new" className="text-slate-500 hover:text-slate-300 transition-colors">What's new</a></li>
                 <li><a href="mailto:hello@datashuttle.ai" className="text-slate-500 hover:text-slate-300 transition-colors">Contact</a></li>
               </ul>
