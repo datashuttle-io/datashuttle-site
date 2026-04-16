@@ -1,4 +1,15 @@
+import { useEffect, useState } from 'react'
 import CodeBlock from './CodeBlock'
+
+type OsKind = 'macOS' | 'Linux' | 'Windows' | null
+
+function detectOs(): OsKind {
+  const ua = navigator.userAgent.toLowerCase()
+  if (ua.includes('mac')) return 'macOS'
+  if (ua.includes('win')) return 'Windows'
+  if (ua.includes('linux') || ua.includes('x11')) return 'Linux'
+  return null
+}
 
 const HERO_SQL = `CREATE PIPELINE customer_sync
   SOURCE postgres CONNECTION 'crm_prod'
@@ -17,6 +28,11 @@ const HERO_SQL = `CREATE PIPELINE customer_sync
   );`
 
 export default function Hero() {
+  const [os, setOs] = useState<OsKind>(null)
+  useEffect(() => {
+    setOs(detectOs())
+  }, [])
+  const downloadLabel = os ? `Download for ${os}` : 'Download for self-host'
   return (
     <section className="relative min-h-[100svh] flex flex-col items-center justify-center pt-16 overflow-hidden bg-slate-950">
       {/* Background glow */}
@@ -67,10 +83,10 @@ export default function Hero() {
             Start free on Cloud →
           </a>
           <a
-            href="#how-it-works"
+            href="/download"
             className="px-8 py-3.5 rounded-full border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-semibold text-sm transition-all active:scale-95"
           >
-            See how it works
+            {downloadLabel} →
           </a>
         </div>
 

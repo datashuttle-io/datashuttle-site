@@ -55,6 +55,12 @@ export default function Nav() {
             Pricing
           </Link>
           <Link
+            to="/download"
+            className="text-sm text-slate-400 hover:text-white transition-colors"
+          >
+            Download
+          </Link>
+          <Link
             to="/whats-new"
             className="text-sm text-slate-400 hover:text-white transition-colors"
           >
@@ -119,6 +125,13 @@ export default function Nav() {
             onClick={() => setOpen(false)}
           >
             Pricing
+          </Link>
+          <Link
+            to="/download"
+            className="text-sm text-slate-400 hover:text-white transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            Download
           </Link>
           <Link
             to="/whats-new"
