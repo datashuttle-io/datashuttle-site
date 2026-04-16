@@ -21,7 +21,7 @@ const TABS: InstallTab[] = [
     key: 'quick',
     label: 'Quick install',
     command:
-      'curl -fsSL https://raw.githubusercontent.com/evgenyestepanov-star/datashuttle/main/install.sh | bash',
+      'curl -fsSL https://raw.githubusercontent.com/datashuttle/datashuttle/main/install.sh | bash',
     footnote:
       "Detects your OS + arch and fetches the right release binary. Read install.sh first if curl | bash makes you twitchy.",
     os: ['linux', 'macos'],
@@ -29,7 +29,7 @@ const TABS: InstallTab[] = [
   {
     key: 'docker',
     label: 'Docker',
-    command: 'docker pull ghcr.io/evgenyestepanov-star/datashuttle:latest',
+    command: 'docker pull ghcr.io/datashuttle/datashuttle:latest',
     footnote:
       'Multi-arch image (linux/amd64 + linux/arm64). The compose bundle at deploy/jarvis-cloud/ is a working reference stack.',
     os: ['linux', 'macos', 'windows'],
@@ -37,7 +37,7 @@ const TABS: InstallTab[] = [
   {
     key: 'homebrew',
     label: 'Homebrew',
-    command: 'brew install evgenyestepanov-star/datashuttle/datashuttle',
+    command: 'brew install datashuttle/datashuttle/datashuttle',
     footnote: 'macOS + Linuxbrew. Tap auto-updates on each release.',
     os: ['macos'],
   },
@@ -77,7 +77,7 @@ const TABS: InstallTab[] = [
     key: 'source',
     label: 'From source',
     command:
-      'git clone https://github.com/evgenyestepanov-star/datashuttle && cd datashuttle && cargo build --release',
+      'git clone https://github.com/datashuttle/datashuttle && cd datashuttle && cargo build --release',
     footnote:
       'Contribution guide is at docs.datashuttle.ai/development/contributing. Windows builds supported via cross but not release-tested.',
     os: ['linux', 'macos', 'windows'],
@@ -206,7 +206,7 @@ export default function Download() {
           {activeTab.key === 'quick' && (
             <p className="mt-2 text-xs">
               <a
-                href="https://github.com/evgenyestepanov-star/datashuttle/blob/main/install.sh"
+                href="https://github.com/datashuttle/datashuttle/blob/main/install.sh"
                 target="_blank"
                 rel="noopener"
                 className="text-indigo-400 underline hover:text-indigo-300"
@@ -218,7 +218,7 @@ export default function Download() {
           {(activeTab.key === 'deb' || activeTab.key === 'rpm') && (
             <p className="mt-2 text-xs">
               <a
-                href="https://github.com/evgenyestepanov-star/datashuttle/releases/latest"
+                href="https://github.com/datashuttle/datashuttle/releases/latest"
                 target="_blank"
                 rel="noopener"
                 className="text-indigo-400 underline hover:text-indigo-300"
@@ -246,14 +246,14 @@ sha256sum -c datashuttle_<version>_checksums.txt
 
 # cosign (keyless, GitHub OIDC)
 cosign verify-blob \\
-  --certificate-identity-regexp='https://github.com/evgenyestepanov-star/datashuttle/.*' \\
+  --certificate-identity-regexp='https://github.com/datashuttle/datashuttle/.*' \\
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \\
   --signature datashuttle-<ver>.sig \\
   datashuttle-<ver>`}
         </pre>
         <p className="mt-3 text-xs">
           <a
-            href="https://github.com/evgenyestepanov-star/datashuttle/blob/main/.github/workflows/release.yaml"
+            href="https://github.com/datashuttle/datashuttle/blob/main/.github/workflows/release.yaml"
             target="_blank"
             rel="noopener"
             className="text-indigo-400 underline hover:text-indigo-300"
