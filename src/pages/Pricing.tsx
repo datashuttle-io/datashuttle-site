@@ -1,8 +1,8 @@
 /// /pricing — 4-tier matrix + DPU explainer + pay-options + FAQ (#626).
 ///
-/// All values source from website/src/data/pricing.ts which mirrors
-/// docs/LICENSING.md. Single-source-of-truth discipline: if you're
-/// tempted to hardcode a price here, update the data module instead.
+/// All values source from website/src/data/pricing.ts. Single-source-
+/// of-truth discipline: if you're tempted to hardcode a price here,
+/// update the data module instead.
 
 import { useState } from 'react'
 import { TIERS, PAY_OPTIONS, FEATURE_MATRIX, FAQS } from '../data/pricing'
