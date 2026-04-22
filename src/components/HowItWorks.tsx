@@ -11,7 +11,7 @@ export default function HowItWorks() {
             How it works
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto">
-            A single Rust binary. No JVM, no broker, no controller node.
+            A Rust daemon plus a thin ~12&nbsp;MB CLI client. No JVM, no broker, no controller node.
             Coordinates via Iceberg catalog — not a separate coordinator service.
           </p>
         </div>
