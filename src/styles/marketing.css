@@ -840,7 +840,108 @@ h1.ds-headline .accent { color: var(--fg); }
   .ds-foot-top { grid-template-columns: 1fr 1fr; gap: 32px; }
   .ds-foot-legal { grid-template-columns: 1fr; text-align: left; }
   .ds-foot-legal .center, .ds-foot-legal .right { text-align: left; }
+
+  /* Hero CTA row needs to wrap on narrow screens — 3 children side
+   * by side overflow any phone viewport. Switch to column stack,
+   * full-width, with the BOOKING tick tucked on top. */
+  .ds-cta-row {
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid var(--border-strong);
+  }
+  .ds-cta-row > * {
+    border-right: 0;
+    border-bottom: 1px solid var(--border-strong);
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .ds-cta-row > *:last-child { border-bottom: 0; }
+  .ds-cta-row .tick { padding: 10px 18px; }
+
+  /* Side-panel key/value rows must wrap — "Apache Iceberg V3" should
+   * not force the column wider than the viewport. */
+  .ds-hero-below .side .row {
+    grid-template-columns: 1fr;
+    row-gap: 2px;
+    padding: 10px 0;
+  }
+  .ds-hero-below .side .row strong {
+    justify-self: start;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Manifest table mono spec column — on phones it's full-width; let
+   * long inline-code wrap instead of horizontal-scrolling. */
+  .ds-m-spec { word-break: break-word; }
+
+  /* Headline size — clamp min 48 is still a bit big for 375px */
+  h1.ds-headline { font-size: clamp(40px, 10vw, 96px); }
+
+  /* Pricing/Cloud tariff rows: give the "tier/scope/price/limits/CTA"
+   * cells natural padding and re-orient the CTA cell as a full-width
+   * button so nothing runs off-screen. */
+  .ds-tariff .trow > div { padding: 18px 20px; }
+  .ds-tariff .cta-cell { padding: 0 !important; }
+  .ds-tariff .cta-cell a { margin: 0; }
+
+  /* Architecture flow collapses to single column (rule already above);
+   * make the arrow a horizontal band so the narrative still reads. */
+  .ds-flow-arrow { padding: 20px 0; }
+  .ds-flow-engine-grid { grid-template-columns: 1fr; }
 }
+
+/* Aggressive phone-only tightening (< 480px) for anything still too
+ * dense after the tablet breakpoint. */
+@media (max-width: 480px) {
+  .ds-topbar { padding: 10px 14px; gap: 12px; }
+  .ds-topbar .wordmark span { font-size: 14px; }
+  .ds-topbar .cta { padding: 6px 10px; font-size: 11px; }
+  .ds-sec, .ds-hero { padding-left: 14px; padding-right: 14px; }
+  .ds-terminal-wrap { padding: 0 14px 32px; }
+  .ds-sec-head { gap: 10px; }
+  .ds-sec-num::before { display: none; }
+  .ds-hero-meta { border-top: 1px solid var(--border-strong); padding-top: 8px; }
+  .ds-manifest-row > .cell { padding: 16px 14px; }
+  .ds-manifest-row.head > div { padding: 4px 14px; }
+  .ds-rates { grid-template-columns: 1fr; }
+  .ds-rate { border-right: 0; }
+  .ds-rate:not(:last-child) { border-bottom: 1px solid var(--border-strong); }
+  .ds-rate .big { font-size: 52px; }
+  .ds-foot-top { grid-template-columns: 1fr; gap: 24px; }
+  .ds-connectors { grid-template-columns: 1fr; }
+  .ds-connector { border-right: 0; }
+}
+
+/* The inline hero highlight on <strong> shouldn't wrap onto two lines
+ * with a gap — use box-decoration-break so the orange background
+ * follows line breaks cleanly. */
+.ds-hero-below .lede strong {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Universal guardrail: nothing should push the document wider than
+ * the viewport. Tables / terminals scroll themselves (overflow-x:
+ * auto on `pre`); everything else just clamps. */
+.ds-main,
+.ds-main * {
+  max-width: 100%;
+}
+.ds-terminal { overflow: hidden; }
+.ds-terminal .tbody { max-width: 100%; overflow-x: auto; }
+
+/* ---------- BRAND LOGO DARK-MODE SWAP ----------
+ * Two <img>s per location; CSS toggles visibility based on data-theme.
+ * Works for both the website (OS-driven) and any future manual toggle. */
+.ds-brand-mark .logo-light,
+.ds-brand-mark .logo-dark { display: inline-block; }
+[data-theme='dark'] .ds-brand-mark .logo-light { display: none; }
+[data-theme='light'] .ds-brand-mark .logo-dark { display: none; }
+/* Default (no data-theme yet set, pre-hydration) → light; anti-FOUC
+ * script in index.html sets it before paint anyway. */
+:root:not([data-theme='dark']) .ds-brand-mark .logo-dark { display: none; }
 
 /* Mobile menu overlay */
 .ds-mobile-menu {

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 64" fill="none" role="img" aria-label="DataShuttle">
   <g transform="translate(0,0)">
-    <path d="M4 14 h40 l8 6 h-40 z" fill="#FF9A4A"></path>
-    <path d="M4 29 h44 l4 6 h-44 z" fill="#5AA4AE"></path>
+    <path d="M4 14 h40 l8 6 h-40 z" fill="#FF8A2A"></path>
+    <path d="M4 29 h44 l4 6 h-44 z" fill="#7DC3CC"></path>
     <path d="M4 44 h36 l8 6 h-40 z" fill="#EDECE7"></path>
   </g>
   <text x="74" y="42" font-family="&#39;IBM Plex Sans&#39;, ui-sans-serif, system-ui, sans-serif" font-size="32" font-weight="600" letter-spacing="-0.03em" fill="#EDECE7">

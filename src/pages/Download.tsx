@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { SEO } from '../components/SEO'
+import LogoMark from '../components/LogoMark'
 
 interface InstallTab {
   key: string
@@ -125,7 +126,7 @@ export default function Download() {
       <div className="ds-doc">
         <aside className="ds-spine">
           <div className="top-mark">MANIFEST · DOWNLOAD</div>
-          <div className="mark-box"><img src="/brand/logo-mark.svg" alt="" /></div>
+          <div className="mark-box"><LogoMark height={28} alt="" /></div>
           <div className="foot-mark">NO. 004</div>
         </aside>
 

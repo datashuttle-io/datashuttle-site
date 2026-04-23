@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import LogoMark from './LogoMark'
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
@@ -14,7 +15,7 @@ export default function Nav() {
           <a href="https://docs.datashuttle.ai">Docs</a>
         </div>
         <Link to="/" className="wordmark">
-          <img src="/brand/logo-mark.svg" alt="" />
+          <LogoMark height={22} alt="" />
           <span>DataShuttle</span>
         </Link>
         <div className="right">

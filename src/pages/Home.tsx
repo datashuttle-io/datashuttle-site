@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { SEO } from '../components/SEO'
+import LogoMark from '../components/LogoMark'
 
 // The marketing home page is a single continuous "shipping manifest"
 // document. Visual spine + § numbered sections from the design handoff;
@@ -20,7 +21,7 @@ export default function Home() {
         <aside className="ds-spine">
           <div className="top-mark">MANIFEST · {manifestStamp()}</div>
           <div className="mark-box">
-            <img src="/brand/logo-mark.svg" alt="" />
+            <LogoMark height={28} alt="" />
           </div>
           <div className="foot-mark">NO. 001 / 007</div>
         </aside>

@@ -1,4 +1,5 @@
 import { SEO } from '../components/SEO'
+import LogoMark from '../components/LogoMark'
 
 const TIERS = [
   {
@@ -73,7 +74,7 @@ export default function Cloud() {
       <div className="ds-doc">
         <aside className="ds-spine">
           <div className="top-mark">MANIFEST · CLOUD</div>
-          <div className="mark-box"><img src="/brand/logo-mark.svg" alt="" /></div>
+          <div className="mark-box"><LogoMark height={28} alt="" /></div>
           <div className="foot-mark">NO. 003</div>
         </aside>
 

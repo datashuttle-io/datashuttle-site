@@ -2,6 +2,7 @@
 
 import { CARDS } from '../data/whats-new'
 import { SEO } from '../components/SEO'
+import LogoMark from '../components/LogoMark'
 
 export default function WhatsNew() {
   return (
@@ -16,7 +17,7 @@ export default function WhatsNew() {
       <div className="ds-doc">
         <aside className="ds-spine">
           <div className="top-mark">MANIFEST · CHANGELOG</div>
-          <div className="mark-box"><img src="/brand/logo-mark.svg" alt="" /></div>
+          <div className="mark-box"><LogoMark height={28} alt="" /></div>
           <div className="foot-mark">NO. 005</div>
         </aside>
 
