@@ -464,6 +464,7 @@ h1.ds-headline .accent { color: var(--fg); }
 .ds-manifest-table {
   border: 1px solid var(--border-strong);
   background: var(--bg);
+  width: 100%;
 }
 .ds-manifest-row {
   display: grid;
@@ -471,7 +472,13 @@ h1.ds-headline .accent { color: var(--fg); }
   align-items: start;
   border-bottom: 1px solid var(--border-strong);
   min-height: 120px;
+  width: 100%;
+  /* Grid children default to min-width: auto (= min-content) which
+   * makes narrow cells force letter-per-line wrapping when the track
+   * is `1fr`. Zero it so `1fr` actually divides the remaining space. */
+  min-width: 0;
 }
+.ds-manifest-row > * { min-width: 0; }
 .ds-manifest-row:last-child { border-bottom: 0; }
 .ds-manifest-row.head {
   background: var(--ink-900);
@@ -810,9 +817,12 @@ h1.ds-headline .accent { color: var(--fg); }
   .ds-topbar .left { display: none; }
   .ds-topbar .right > a:not(.cta) { display: none; }
   .ds-topbar .hamburger { display: inline-flex; }
-  .ds-doc { grid-template-columns: 0 1fr; }
+  /* One column on phones — `display: none` on the spine leaves the
+   * grid track in place, so the document collapses into a 0-wide
+   * column if the template still references two tracks. */
+  .ds-doc { grid-template-columns: 1fr; }
   .ds-spine { display: none; }
-  .ds-main { border-right: 0; }
+  .ds-main { border-right: 0; min-width: 0; width: 100%; }
   .ds-sec, .ds-hero { padding-left: 20px; padding-right: 20px; }
   .ds-terminal-wrap { padding: 0 20px 40px; }
   .ds-hero-grid,
@@ -922,15 +932,67 @@ h1.ds-headline .accent { color: var(--fg); }
   -webkit-box-decoration-break: clone;
 }
 
-/* Universal guardrail: nothing should push the document wider than
- * the viewport. Tables / terminals scroll themselves (overflow-x:
- * auto on `pre`); everything else just clamps. */
-.ds-main,
-.ds-main * {
-  max-width: 100%;
-}
+/* Guardrail: keep root container + terminal from pushing past the
+ * viewport. Do NOT set `max-width: 100%` on every descendant — that
+ * collapses grid children that need intrinsic widths (turned every
+ * manifest-row into one-letter-per-line columns on mobile). */
+/* html/body already clip horizontal overflow (see index.css); don't
+ * add a second scroll container on ds-main — it breaks grid sizing
+ * and blanks the whole document at mobile widths. */
 .ds-terminal { overflow: hidden; }
-.ds-terminal .tbody { max-width: 100%; overflow-x: auto; }
+.ds-terminal .tbody { overflow-x: auto; }
+
+/* CSS Grid default min-width on children is `auto` = min-content. That
+ * is what makes a `1fr` track collapse to the width of the longest
+ * word inside its only cell, which is why "Iceberg Native" was
+ * wrapping one letter per line on phones. Zero the min-width on every
+ * grid container we control so `1fr` actually divides the space. */
+.ds-collapse .pair,
+.ds-collapse .pair > *,
+.ds-rates,
+.ds-rate,
+.ds-tariff .trow,
+.ds-tariff .trow > div,
+.ds-compare,
+.ds-compare-row,
+.ds-compare-row > div,
+.ds-flow,
+.ds-flow > *,
+.ds-steps,
+.ds-step,
+.ds-step > *,
+.ds-hero-grid,
+.ds-hero-grid > *,
+.ds-hero-below,
+.ds-hero-below > *,
+.ds-sec-head,
+.ds-sec-head > *,
+.ds-connectors,
+.ds-connector,
+.ds-layout-grid,
+.ds-layout-grid > * {
+  min-width: 0;
+}
+
+/* Long inline tokens (URLs, code, unbroken mono strings) should wrap
+ * rather than push their column wider. Scoped to text-bearing cells
+ * that actually need it. */
+.ds-m-desc h4,
+.ds-m-desc p,
+.ds-m-spec,
+.ds-hero-below .lede,
+.ds-hero-below .side .row strong,
+.ds-connector .name,
+.ds-tariff .tdesc,
+.ds-tariff .incl,
+.ds-step p,
+.ds-layout-cap p,
+.ds-layout-cap h4,
+.ds-testimony blockquote,
+.ds-compare-row .feat {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
 
 /* ---------- BRAND LOGO DARK-MODE SWAP ----------
  * Two <img>s per location; CSS toggles visibility based on data-theme.
