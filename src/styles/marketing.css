@@ -859,3 +859,352 @@ h1.ds-headline .accent { color: var(--fg); }
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+
+/* ---------- TERMINAL whitespace spans ---------- */
+.ds-terminal .ws { color: transparent; }
+
+/* ---------- ARCHITECTURE FLOW (§ 03) ---------- */
+.ds-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1.4fr auto 1fr;
+  gap: 0;
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  margin-bottom: 40px;
+}
+.ds-flow-col,
+.ds-flow-engine {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-right: 1px solid var(--border-strong);
+}
+.ds-flow-col:last-child,
+.ds-flow-engine:last-child { border-right: 0; }
+.ds-flow-head {
+  font: 500 10px var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin-bottom: 6px;
+}
+.ds-flow-head.accent { color: var(--signal-500); }
+.ds-flow-head.moss { color: var(--moss-400); }
+.ds-flow-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ds-flow-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font: 500 13px var(--font-sans);
+  color: var(--fg);
+  padding: 6px 8px;
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+.ds-flow-list li .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal-400);
+  flex: none;
+}
+.ds-flow-list li .dot.moss { background: var(--moss-400); }
+.ds-flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  color: var(--signal-400);
+  font: 500 20px var(--font-mono);
+  background: repeating-linear-gradient(
+    45deg,
+    var(--signal-400) 0, var(--signal-400) 6px,
+    var(--ink-900) 6px, var(--ink-900) 12px
+  );
+  color: var(--paper-50);
+  min-width: 44px;
+  position: relative;
+}
+.ds-flow-arrow::before {
+  content: '→';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--ink-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+}
+.ds-flow-engine {
+  background: var(--bg-sunken);
+}
+.ds-flow-engine-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.ds-flow-engine-grid span {
+  font: 500 12px var(--font-mono);
+  color: var(--fg);
+  padding: 6px 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+.ds-flow-stamp {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: var(--signal-400);
+  color: var(--ink-900);
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 2px;
+}
+.ds-flow-foot {
+  margin-top: auto;
+  font: 400 11px var(--font-mono);
+  color: var(--fg-3);
+  letter-spacing: 0.06em;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border-strong);
+}
+
+/* ---------- STEPS (§ 03 bottom) ---------- */
+.ds-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+}
+.ds-step {
+  padding: 24px;
+  border-right: 1px solid var(--border-strong);
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.ds-step:last-child { border-right: 0; }
+.ds-step-num {
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--signal-500);
+}
+.ds-step h4 {
+  font: 600 16px var(--font-sans);
+  color: var(--fg);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.ds-step p {
+  font: 400 13px/1.55 var(--font-sans);
+  color: var(--fg-2);
+}
+
+/* ---------- PHYSICAL LAYOUT (§ 05) ---------- */
+.ds-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.ds-layout-code .ds-terminal { margin: 0; }
+.ds-layout-note {
+  margin-top: 12px;
+  font: 400 12px/1.55 var(--font-sans);
+  color: var(--fg-3);
+}
+.ds-layout-caps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ds-layout-cap {
+  border: 1px solid var(--border-strong);
+  padding: 16px 18px;
+  background: var(--bg);
+}
+.ds-layout-cap-label {
+  font: 500 10px var(--font-mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--signal-500);
+  display: block;
+  margin-bottom: 6px;
+}
+.ds-layout-cap h4 {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.ds-layout-cap p {
+  font: 400 13px/1.55 var(--font-sans);
+  color: var(--fg-2);
+}
+
+/* ---------- COMPARISON TABLE (§ 06) ---------- */
+.ds-compare {
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  overflow-x: auto;
+}
+.ds-compare-row {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(4, 1fr);
+  align-items: stretch;
+  border-bottom: 1px solid var(--border);
+  min-width: 720px;
+}
+.ds-compare-row:last-child { border-bottom: 0; }
+.ds-compare-row > div {
+  padding: 12px 14px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font: 500 12px var(--font-mono);
+  letter-spacing: 0.04em;
+  color: var(--fg-2);
+}
+.ds-compare-row > div:first-child {
+  justify-content: flex-start;
+  text-align: left;
+  font: 500 13px var(--font-sans);
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+.ds-compare-row > div:last-child { border-right: 0; }
+.ds-compare-row.head {
+  background: var(--ink-900);
+  color: var(--paper-50);
+  min-height: auto;
+}
+.ds-compare-row.head > div {
+  color: var(--paper-50);
+  font: 500 10px var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-right-color: #2a2a2d;
+  padding: 12px 14px;
+}
+.ds-compare-row.head > div:first-child { color: var(--paper-400); }
+.ds-compare-row.head > div.primary { background: var(--signal-400); color: var(--ink-900); }
+.ds-compare-row > div.primary { background: var(--signal-50); }
+[data-theme='dark'] .ds-compare-row > div.primary { background: rgba(244, 118, 23, 0.08); }
+.ds-tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(94, 115, 68, 0.15);
+  color: var(--moss-400);
+  font-weight: 700;
+  font-size: 14px;
+}
+.ds-cross {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(179, 65, 42, 0.1);
+  color: var(--rust-400);
+  font-weight: 500;
+  font-size: 14px;
+}
+.ds-partial {
+  font: 500 11px var(--font-mono);
+  color: var(--fg-3);
+  letter-spacing: 0.04em;
+}
+
+/* ---------- CONNECTORS (§ 07) ---------- */
+.ds-connectors {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0;
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+}
+.ds-connector {
+  padding: 14px 16px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: 12px;
+  align-items: center;
+}
+.ds-connector .name {
+  font: 500 13px var(--font-sans);
+  color: var(--fg);
+  letter-spacing: -0.01em;
+  grid-column: 1;
+  grid-row: 1;
+}
+.ds-connector .cat {
+  font: 500 10px var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  grid-column: 1;
+  grid-row: 2;
+}
+.ds-connector .ga {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  font: 600 10px var(--font-mono);
+  letter-spacing: 0.14em;
+  color: var(--moss-400);
+  border: 1px solid var(--moss-400);
+  padding: 3px 7px;
+  border-radius: 2px;
+}
+.ds-connectors-foot {
+  margin-top: 16px;
+  font: 400 12px var(--font-sans);
+  color: var(--fg-3);
+  text-align: center;
+}
+
+/* Responsive tweaks for new sections */
+@media (max-width: 960px) {
+  .ds-flow { grid-template-columns: 1fr; }
+  .ds-flow-col, .ds-flow-engine { border-right: 0; border-bottom: 1px solid var(--border-strong); }
+  .ds-flow-engine:last-child { border-bottom: 0; }
+  .ds-flow-arrow { min-height: 44px; }
+  .ds-flow-arrow::before { transform: translate(-50%, -50%) rotate(90deg); }
+  .ds-steps { grid-template-columns: 1fr; }
+  .ds-step { border-right: 0; border-bottom: 1px solid var(--border-strong); }
+  .ds-step:last-child { border-bottom: 0; }
+  .ds-layout-grid { grid-template-columns: 1fr; }
+}
