@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import { SEO } from '../components/SEO'
+import { Icon as InkIcon } from '../components/Icon'
 
 function Icon({ n, cls = '' }: { n: string; cls?: string }) {
-  return <img src={`/icons/${n}.svg`} alt="" className={cls} style={{ width: 14, height: 14 }} />
+  return <InkIcon name={n} size={14} className={cls} />
 }
 function IconLg({ n }: { n: string }) {
-  return <img src={`/icons/${n}.svg`} alt="" className="ico" style={{ width: 22, height: 22 }} />
+  return <InkIcon name={n} size={22} className="ico" />
 }
 
 const FEATURES = [

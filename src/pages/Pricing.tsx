@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { SEO } from '../components/SEO'
 
+import { Icon as InkIcon } from '../components/Icon'
 function Icon({ n }: { n: string }) {
-  return <img src={`/icons/${n}.svg`} alt="" style={{ width: 14, height: 14 }} />
+  return <InkIcon name={n} size={14} />
 }
 
 const RATES = [
