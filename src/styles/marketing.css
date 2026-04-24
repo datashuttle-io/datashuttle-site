@@ -72,7 +72,8 @@ body { font-family: 'Inter Tight', ui-sans-serif, system-ui, sans-serif; }
 .stack-list .item .x { color: var(--fg-3); }
 .stack-list .item .note { font: 400 11px var(--font-mono); color: var(--fg-3); }
 .after-sole { padding: 16px; background: var(--bg); border: 1px solid var(--fg); border-radius: var(--radius-xs); display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; }
-.after-sole .mark { width: 28px; height: 28px; }
+.after-sole .mark { width: 28px; height: 28px; content: url('/brand/logo-mark.svg'); }
+[data-theme="dark"] .after-sole .mark { content: url('/brand/logo-mark-dark.svg'); }
 .after-sole .name { font: 600 14px var(--font-sans); letter-spacing: -0.01em; color: var(--fg); }
 .after-sole .sub { font: 500 11px var(--font-mono); color: var(--fg-3); }
 @media (max-width: 860px) { .ds-compare { grid-template-columns: 1fr; } }
