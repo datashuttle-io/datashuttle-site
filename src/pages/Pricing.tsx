@@ -25,7 +25,7 @@ const TIERS: Tier[] = [
     name: 'Community',
     startingPrice: 'Free',
     unit: '',
-    perDpu: 'Included: 10,000 DPU / month',
+    perDpu: 'Included: 100 DPU / month',
     desc:
       'For evaluation, dev environments, and small pipelines. Core connectors and the REST API; no CDC, Iceberg sinks, SQL transforms, or clustering.',
     bullets: [
@@ -83,7 +83,7 @@ const TIERS: Tier[] = [
     name: 'Enterprise',
     startingPrice: 'Custom',
     unit: '',
-    perDpu: 'from $0.14 / DPU · commit 100,000 DPU/mo',
+    perDpu: '',
     desc:
       'SSO / SAML, airgapped deployment, BYO-AWS standard, custom connectors, dedicated CSM. 24×7 support with a 1-hour SLA.',
     bullets: [
@@ -140,12 +140,14 @@ export default function Pricing() {
                   </span>
                   {t.unit && <span className="u">{t.unit}</span>}
                 </div>
-                <p
-                  className="desc"
-                  style={{ font: '500 11px var(--font-mono)', color: 'var(--fg-2)', letterSpacing: '0.02em' }}
-                >
-                  {t.perDpu}
-                </p>
+                {t.perDpu && (
+                  <p
+                    className="desc"
+                    style={{ font: '500 11px var(--font-mono)', color: 'var(--fg-2)', letterSpacing: '0.02em' }}
+                  >
+                    {t.perDpu}
+                  </p>
+                )}
                 <p className="desc">{t.desc}</p>
                 <ul>
                   {t.bullets.map((b) => (
@@ -221,10 +223,8 @@ export default function Pricing() {
               color: 'var(--fg-3)',
             }}
           >
-            Startup discount (up to 3 years old, under $5M funding) and
-            non-profit discount: 75% off Team and Business for the first year
-            — <a href="mailto:sales@datashuttle.ai" style={{ color: 'var(--accent-400)' }}>sales@datashuttle.ai</a>.
-            Annual prepay unlocks additional volume discounts.
+            Startup, non-profit, and committed-use discounts available
+            on request — <a href="mailto:sales@datashuttle.ai" style={{ color: 'var(--accent-400)' }}>sales@datashuttle.ai</a>.
           </p>
         </section>
       </div>
