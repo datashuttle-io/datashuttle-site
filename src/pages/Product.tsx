@@ -14,7 +14,7 @@ const CAPS: Capability[] = [
   {
     title: 'SQL-first control plane',
     maturity: 'ga',
-    body: 'CREATE PIPELINE / ALTER PIPELINE / DROP PIPELINE as the public API. No YAML graphs, no UI-only state.',
+    body: 'CREATE SHUTTLE / ALTER SHUTTLE / DROP SHUTTLE as the public API. No YAML graphs, no UI-only state.',
   },
   {
     title: 'Continuous change capture',
@@ -34,7 +34,7 @@ const CAPS: Capability[] = [
   {
     title: 'Commit batching + WAL',
     maturity: 'ga',
-    body: 'Per-table staging buffer. Auto-flush on file count, byte size, or interval. Append-only per-pipeline WAL survives crash and resumes on startup. Default and tighter CDC-mode thresholds configurable via WITH (...) overrides.',
+    body: 'Per-table staging buffer. Auto-flush on file count, byte size, or interval. Append-only per-shuttle WAL survives crash and resumes on startup. Default and tighter CDC-mode thresholds configurable via WITH (...) overrides.',
   },
   {
     title: 'Arrow Flight hot path',
@@ -49,7 +49,7 @@ const CAPS: Capability[] = [
   {
     title: 'Resource pools',
     maturity: 'beta',
-    body: 'cgroups v2 isolation for shared / dedicated / elastic pool kinds. Pin noisy pipelines to a capped CPU slice; reserve RAM for latency-sensitive ones. No Kubernetes required.',
+    body: 'cgroups v2 isolation for shared / dedicated / elastic pool kinds. Pin noisy shuttles to a capped CPU slice; reserve RAM for latency-sensitive ones. No Kubernetes required.',
   },
   {
     title: 'Security architecture',
@@ -96,7 +96,7 @@ export default function Product() {
             <p className="lede">
               A capability inventory, with explicit maturity per item. Nothing on
               this page is labelled GA unless it is actually running in
-              production-representative pipelines today.
+              production-representative shuttles today.
             </p>
             <div className="actions">
               <Link className="ds-btn ds-btn-secondary" to="/status">

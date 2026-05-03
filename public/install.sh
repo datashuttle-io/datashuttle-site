@@ -275,7 +275,7 @@ main() {
         echo ""
         echo "  export DS_SERVER=https://datashuttle.example.com"
         echo "  datashuttle-client status"
-        echo "  datashuttle-client pipeline list"
+        echo "  datashuttle-client shuttle list"
         echo ""
         info "Full client guide: https://docs.datashuttle.ai/installation/binary.html#thin-client-vs-full-daemon"
         return

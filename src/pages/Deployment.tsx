@@ -214,7 +214,7 @@ export default function Deployment() {
             <li>We send you an email verification link. State: <code>awaiting_email_verification</code>.</li>
             <li>
               You click the link. State moves to <code>awaiting_approval</code>. You see a
-              waiting screen; no pipelines, no tenant yet.
+              waiting screen; no shuttles, no tenant yet.
             </li>
             <li>
               We review the signup in the admin console — usually within one

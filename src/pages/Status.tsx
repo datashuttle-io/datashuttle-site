@@ -50,9 +50,9 @@ interface FeatureStatus {
 }
 
 const FEATURES: FeatureStatus[] = [
-  { area: 'SQL-first control plane (CREATE / ALTER / DROP PIPELINE)', maturity: 'ga', note: 'Public API; stable.' },
+  { area: 'SQL-first control plane (CREATE / ALTER / DROP SHUTTLE)', maturity: 'ga', note: 'Public API; stable.' },
   { area: 'Iceberg V3 writer — deletion vectors, partition evolution, schema evolution', maturity: 'beta', note: 'Default ON. Interoperability with other V3 readers tracked via integration tests.' },
-  { area: 'Commit batching + per-pipeline WAL', maturity: 'ga', note: 'Default thresholds tuned for snapshot and CDC paths separately.' },
+  { area: 'Commit batching + per-shuttle WAL', maturity: 'ga', note: 'Default thresholds tuned for snapshot and CDC paths separately.' },
   { area: 'Continuous CDC — Postgres WAL, MySQL binlog, MongoDB oplog, Kafka', maturity: 'beta', note: 'Exactly-once commit protocol is TLA+-specified; implementation hardening ongoing.' },
   { area: 'Snapshot resume / crash-safe checkpointing', maturity: 'beta', note: 'Catalog snapshot summary is the source of truth. Single-shard exactly-once today; multi-shard parallel snapshot resume is a tracked follow-up.' },
   { area: 'Arrow Flight hot buffer', maturity: 'alpha', note: 'Behaviour specified, observability and unit-test coverage being expanded.' },

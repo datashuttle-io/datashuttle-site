@@ -2,7 +2,7 @@
 ///
 /// Commands are pinned to install.sh + the Helm chart + the release-asset
 /// names. Anything here that doesn't match those is a bug in this page,
-/// not in the packaging pipeline.
+/// not in the packaging shuttle.
 
 import { useMemo, useState } from 'react'
 import { SEO } from '../components/SEO'

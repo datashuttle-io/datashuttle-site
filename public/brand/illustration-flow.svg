@@ -21,7 +21,7 @@
     <path d="M 23 21 L 29 27" stroke="#141416" stroke-width="1.8" stroke-linecap="round"></path>
     <rect x="28" y="26" width="8" height="8" rx="1.5" fill="#527273"></rect>
     <text x="44" y="26" font-size="12" font-weight="600" font-family="&#39;Inter Tight&#39;, sans-serif" fill="#141416">DataShuttle</text>
-    <text x="16" y="52" font-size="10" fill="#6B6B73">CREATE PIPELINE ...</text>
+    <text x="16" y="52" font-size="10" fill="#6B6B73">CREATE SHUTTLE ...</text>
     <text x="16" y="68" font-size="10" fill="#6B6B73">exactly-once</text>
   </g>
   

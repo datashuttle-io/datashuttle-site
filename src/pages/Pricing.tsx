@@ -27,11 +27,11 @@ const TIERS: Tier[] = [
     unit: '',
     perDpu: 'Included: 100 DPU / month',
     desc:
-      'For evaluation, dev environments, and small pipelines. Core connectors and the REST API; no CDC, Iceberg sinks, SQL transforms, or clustering.',
+      'For evaluation, dev environments, and small shuttles. Core connectors and the REST API; no CDC, Iceberg sinks, SQL transforms, or clustering.',
     bullets: [
       'Core connectors',
       'REST API',
-      'Up to 3 pipelines',
+      'Up to 3 shuttles',
       '1 environment',
       'Community support via GitHub',
     ],
@@ -46,12 +46,12 @@ const TIERS: Tier[] = [
     unit: '/ month',
     perDpu: '$0.38 / DPU · commit 1,000 DPU/mo',
     desc:
-      'Production pipelines at small-to-mid scale. CDC, Iceberg and Delta sinks, SQL transforms, clustering. Email support, 48-hour response.',
+      'Production shuttles at small-to-mid scale. CDC, Iceberg and Delta sinks, SQL transforms, clustering. Email support, 48-hour response.',
     bullets: [
       'Continuous CDC',
       'Iceberg / Delta sinks',
       'SQL transforms',
-      'Up to 25 pipelines',
+      'Up to 25 shuttles',
       '1 environment',
     ],
     cta: 'Create account',
@@ -71,7 +71,7 @@ const TIERS: Tier[] = [
       'Everything in Team',
       'RBAC',
       'Audit log export',
-      'Up to 200 pipelines',
+      'Up to 200 shuttles',
       '5 environments per licence',
     ],
     cta: 'Contact sales',
@@ -90,7 +90,7 @@ const TIERS: Tier[] = [
       'SSO / SAML',
       'Airgapped deployment',
       'BYO-AWS included',
-      'Unlimited pipelines and environments',
+      'Unlimited shuttles and environments',
       'Dedicated CSM, 24×7 support',
     ],
     cta: 'Contact sales',
@@ -177,7 +177,7 @@ export default function Pricing() {
             <h2>Free to evaluate, not a production tier.</h2>
             <p>
               Community is for kicking the tyres — evaluations, development, and
-              small internal pipelines. Three pipelines, one environment, no
+              small internal shuttles. Three shuttles, one environment, no
               CDC, no Iceberg sinks. Production workloads start on Team.
             </p>
           </div>

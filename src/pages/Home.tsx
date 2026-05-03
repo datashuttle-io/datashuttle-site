@@ -89,7 +89,7 @@ export default function Home() {
               <span style={{ marginLeft: 10 }}>datashuttle — customer_sync.sql</span>
             </div>
             <pre>
-              <span className="kw">CREATE PIPELINE</span> customer_sync{'\n'}
+              <span className="kw">CREATE SHUTTLE</span> customer_sync{'\n'}
               {'  '}<span className="kw">SOURCE</span> postgres <span className="kw">CONNECTION</span> <span className="str">'crm_prod'</span>{'\n'}
               {'  '}<span className="kw">TABLES</span> <span className="punc">(</span><span className="str">'accounts'</span>, <span className="str">'orders'</span>, <span className="str">'payments'</span><span className="punc">)</span>{'\n'}
               {'  '}<span className="kw">INTO</span> iceberg.warehouse.crm{'\n'}
@@ -106,7 +106,7 @@ export default function Home() {
         <section className="ds-sec" id="why">
           <div className="ds-sec-head">
             <div className="eyebrow">01 · why a dedicated engine</div>
-            <h2>Stop gluing Kafka, Debezium, Flink, and custom code for every pipeline.</h2>
+            <h2>Stop gluing Kafka, Debezium, Flink, and custom code for every shuttle.</h2>
             <p>
               A typical lakehouse ingestion stack is four or five moving parts plus
               orchestration. DataShuttle replaces that chain with a single Rust
