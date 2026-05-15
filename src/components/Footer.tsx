@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="ds-footer-base">
-          <span>© 2024–{year} DataShuttle Labs. All rights reserved.</span>
+          <span>© {year} DataShuttle Labs. All rights reserved.</span>
           <span className="license-note">
             DataShuttle is distributed under a proprietary license.
           </span>
